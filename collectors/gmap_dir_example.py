@@ -19,4 +19,5 @@ directions_result = gmaps.directions("Sydney Town Hall",
                                      mode="transit",
                                      departure_time=now)
 
-pprint.pprint(directions_result)
+print(directions_result[0]['legs'][0]['distance']['text']])
+print(directions_result[0]['legs'][0]['duration']['text']])
