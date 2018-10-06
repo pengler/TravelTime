@@ -3,7 +3,7 @@ import googlemaps
 import os
 from datetime import datetime
 import pprint
-
+import json
 gmaps = googlemaps.Client(key=os.environ['DIRECTIONS_API_KEY'])
 
 # Geocoding an address
@@ -24,6 +24,10 @@ directions_result = gmaps.directions(" 800 Macleod Trail SE, Calgary ",
                                      "2000 Airport Rd NE, Calgary",
                                      mode="driving",
                                      departure_time=now)
+
+f = open('result_data.json', 'w')
+f.write(json.dumps(directions_result))
+f.close()
 
 print(directions_result[0]['legs'][0]['distance']['text'])
 print(directions_result[0]['legs'][0]['duration']['text'])
