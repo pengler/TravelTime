@@ -32,8 +32,15 @@ if len (sys.argv) != 3 :
     exit(-1)
 
 parcels = pd.read_csv(sys.argv[1], float_precision='high', dtype=col_types)
-#parcels['STREET_TYPE_EXTENDED'] = parcels['STREET_TYPE'].apply( lambda x: street_name_conv2[x]).str.upper()
-#parcels['ADDRESS_EXTENDED'] = parcels['ADDRESS'].apply( lambda x: )
-#print (parcels.head(10))
+parcels = parcels.rename(str.upper, axis='columns')
+parcels.HOUSE_ALPHA = parcels.HOUSE_ALPHA.fillna('')   
+parcels['STREET_TYPE_EXTENDED'] = parcels.STREET_TYPE.apply( lambda x: street_name_conv2[x]).str.upper()
+parcels['ADDRESS_EXTENDED'] = parcels.HOUSE_NUMBER.map(str) + parcels.HOUSE_ALPHA + ' ' + \
+                           parcels.STREET_NAME + ' ' + parcels.STREET_TYPE_EXTENDED + ' ' + \
+                           parcels.STREET_QUAD
+parcels = parcels[['ADDRESS', 'ADDRESS_EXTENDED', 'STREET_NAME', 'STREET_TYPE', 'STREET_TYPE_EXTENDED', 
+                   'STREET_QUAD', 'HOUSE_NUMBER', 'HOUSE_ALPHA', 'ADDRESS_TYPE', 'LONGITUDE', 'LATITUDE']]
+# For debugging
+#print (parcels.head(20))
 #print (parcels.info())
 pickle.dump( parcels, open( sys.argv[2], "wb" ) )
