@@ -13,7 +13,7 @@
     - [Directions API](https://developers.google.com/maps/documentation/directions/start)
     - Map data ©2018 Google
 
-### Address Data
+### Data Sources
 
 1.  City of Calgary Community Points Data Set 
     - [Community Points](https://data.calgary.ca/Base-Maps/Community-Points/j9ps-fyst)
@@ -27,3 +27,6 @@
     - [Canada Post Business Marketing](https://www.canadapost.ca/cpc/en/business/marketing/audience/license-data.page)
     - [Postal Code Address Data](https://www.canadapost.ca/cpc/assets/cpc/uploads/files/marketing/pcad-postal-code-address-data-samples.zip)
     - © Canada Post Corporation
+
+4. Major Activity Centers
+    - [Calgary Municipal Development Plan](http://www.calgary.ca/PDA/pd/Documents/municipal-development-plan/mdp-maps.pdf)
